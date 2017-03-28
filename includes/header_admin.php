@@ -12,6 +12,24 @@
     require($_SERVER['DOCUMENT_ROOT'] . '/myshop/config.php');
     require($_SERVER['DOCUMENT_ROOT'] . '/myshop/function.php');
 
+    if (isset($_SESSION['userid']))
+    {
+        $uid = $_SESSION['userid'];
+        $sql_display = "SELECT u.firstName, u.lastName, t.userType FROM users u
+        INNER JOIN types t ON u.typeID = t.typeID
+        WHERE u.userID = $uid";
+        
+        $result_display = $con->query($result_display) or die(mysqli_errno($con));
+        while ($row = mysqli_fetch_array($result_display))
+        {
+            $fn = $row['firstName'];
+            $ln = $row['lastName'];
+            
+            $userName = $fn . ' ' . $ln;
+            $userType = $row['userType'];
+            
+        }
+    }
     $userName = "John Doe";
     $userType = "Administrator";
 ?>
