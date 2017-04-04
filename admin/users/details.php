@@ -10,7 +10,7 @@
 			$page_title = "User #$id Details";
 		    include_once('../../includes/header_admin.php');
 
-		    validateAccess();
+//		    validateAccess();
 
 		    # display existing record
 			$sql_data = "SELECT userID, status, typeID, firstName, lastName, email,
@@ -22,7 +22,7 @@
 			# checks if record is not existing
 			if (mysqli_num_rows($result_data) == 0)
 			{
-				header('location: index.php');
+				//header('location: index.php');
 			}
 
 			while ($row = mysqli_fetch_array($result_data))

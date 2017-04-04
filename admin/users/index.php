@@ -2,7 +2,7 @@
 	$page_title = "View Users";
     include_once('../../includes/header_admin.php');
 
-    validateAccess();
+    //validateAccess();
 
     # displays list of users
     $sql_users = "SELECT u.userID, t.userType, u.firstName, u.lastName,
